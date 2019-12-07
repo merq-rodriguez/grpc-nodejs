@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service FighterService {
+    rpc List (Empty) returns (FighterList) {}
+    rpc Save (Fighter) returns (Fighter) {}
+    rpc Delete (FighterRequestId) returns (Fighter) {}
+    rpc Update (Fighter) returns (Fighter) {}
+}
+
+message Empty {}
+
+message Fighter {
+   string id = 1;
+   string name = 2;
+   string type = 3;
+}
+
+message FighterList {
+   repeated Fighter fighters = 1;
+}
+
+message FighterRequestId {
+    string id = 1;
+}
